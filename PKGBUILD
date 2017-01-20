@@ -1,7 +1,7 @@
 # Maintainer: Jason Papakostas <vithos@gmail.com>
 pkgbase='riot-web'
 pkgname=('riot-web' 'riot-desktop')
-_ver='0.9.5'
+_ver='0.9.6'
 pkgver="${_ver//-/_}" # sometimes upstream uses hyphens; we can't
 pkgrel=1
 arch=('any')
@@ -14,7 +14,7 @@ changelog='CHANGELOG.md'
 source=("$pkgbase-v$_ver.tar.gz::https://github.com/vector-im/$pkgbase/archive/v$_ver.tar.gz"
         'riot-desktop.sh'
         'Caddyfile.example')
-sha512sums=('73a02260df87bbd4f4e021ed6722da694ce09d0bd72bdbf274009652d3e9d42346cfa0b249370e06dda24aef65b1f4a423087caacb850b9ee91eb26159c34261'
+sha512sums=('074156096fb7382b2914c48dd15eb7af660ec0268729e087f002c2da6f1561137cfd98afe752bd90627bc9998d6ef3dd5202d33f6a8aa4ba460a41c0356606d2'
             '1dcf873b6cdd33c628160ddad3704e1c54909d245cac8f65c6dae4e98c1d9f0e6a0b4879e7826211748ff8e4441fc3617ba4c22a1971a40caf4e1be4ef2a0d21'
             'e79eeada2a945dbc13f9b0d56e89979c9462ed6fc606da0bab516f574adea3ea1a19dd4bb908c800eb865d0dd79f4e616da1425a119f2ab9807af764e1a4483d')
 
@@ -50,9 +50,6 @@ build() {
 }
 
 check() {
-  msg2 "tests are currently broken, skipping" # https://github.com/vector-im/riot-web/issues/2733
-  return 0
-
   cd "$srcdir/$_unpacked_dirname"
 
   msg2 "Running test suite"
